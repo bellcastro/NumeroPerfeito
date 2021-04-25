@@ -1,0 +1,112 @@
+~/NumeroPerfeito$ mut.py --target numeroPerfeito --unit-test teste -m
+[*] Start mutation process:
+   - targets: numeroPerfeito
+   - tests: teste
+1
+2
+3
+1
+[*] 2 tests passed:
+   - teste [0.00225 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR numeroPerfeito: 
+--------------------------------------------------------------------------------
+   1: 
+   2: def numeroPerfeito(num):
+   3:     somador = 0
+   4:     for i in range(1, num):
+-  5:         if num % i == 0:
++  5:         if num * i == 0:
+   6:             somador = somador + i
+   7:             print(i)
+   8:     
+   9:     if somador == num:
+--------------------------------------------------------------------------------
+[0.04415 s] killed by test_case1 (teste.TestMethod)
+   - [#   2] AOR numeroPerfeito: 
+--------------------------------------------------------------------------------
+   2: def numeroPerfeito(num):
+   3:     somador = 0
+   4:     for i in range(1, num):
+   5:         if num % i == 0:
+-  6:             somador = somador + i
++  6:             somador = somador - i
+   7:             print(i)
+   8:     
+   9:     if somador == num:
+  10:         return True
+--------------------------------------------------------------------------------
+1
+2
+3
+[0.01993 s] killed by test_case1 (teste.TestMethod)
+   - [#   3] COI numeroPerfeito: 
+--------------------------------------------------------------------------------
+   1: 
+   2: def numeroPerfeito(num):
+   3:     somador = 0
+   4:     for i in range(1, num):
+-  5:         if num % i == 0:
++  5:         if not (num % i == 0):
+   6:             somador = somador + i
+   7:             print(i)
+   8:     
+   9:     if somador == num:
+--------------------------------------------------------------------------------
+4
+5
+[0.01715 s] killed by test_case1 (teste.TestMethod)
+   - [#   4] COI numeroPerfeito: 
+--------------------------------------------------------------------------------
+   5:         if num % i == 0:
+   6:             somador = somador + i
+   7:             print(i)
+   8:     
+-  9:     if somador == num:
++  9:     if not (somador == num):
+  10:         return True
+  11:     else:
+  12:         return False
+--------------------------------------------------------------------------------
+1
+2
+3
+[0.01139 s] killed by test_case1 (teste.TestMethod)
+   - [#   5] ROR numeroPerfeito: 
+--------------------------------------------------------------------------------
+   1: 
+   2: def numeroPerfeito(num):
+   3:     somador = 0
+   4:     for i in range(1, num):
+-  5:         if num % i == 0:
++  5:         if num % i != 0:
+   6:             somador = somador + i
+   7:             print(i)
+   8:     
+   9:     if somador == num:
+--------------------------------------------------------------------------------
+4
+5
+[0.00916 s] killed by test_case1 (teste.TestMethod)
+   - [#   6] ROR numeroPerfeito: 
+--------------------------------------------------------------------------------
+   5:         if num % i == 0:
+   6:             somador = somador + i
+   7:             print(i)
+   8:     
+-  9:     if somador == num:
++  9:     if somador != num:
+  10:         return True
+  11:     else:
+  12:         return False
+--------------------------------------------------------------------------------
+1
+2
+3
+[0.05240 s] killed by test_case1 (teste.TestMethod)
+[*] Mutation score [0.49748 s]: 100.0%
+   - all: 6
+   - killed: 6 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
